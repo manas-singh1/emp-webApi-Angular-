@@ -1,0 +1,28 @@
+<div class=" container my-5 text-light">
+    <h1 class="mb-3 text-center">Employee Details</h1>
+    <table class="table table-dark" *ngIf="employees && employees.length>0">
+        <thead class="text-light">
+            <tr>
+                
+                <th>NAME</th>
+                <th>EMAIL ID</th>
+                <th>PHONE NO. </th>
+                <th>DESIGNATION</th>
+                <th>SALARY</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody class="text-light">
+            <tr *ngFor="let employee of employees">
+                
+                <td>{{employee.name}}</td>
+                <td>{{employee.email}}</td>
+                <td>{{employee.phone}}</td>
+                <td>{{employee.designation}}</td>
+                <td>{{employee.salary}}</td>
+                <td><a [routerLink]="['/employees','edit',employee.id]">View</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="!employees || employees.length<=0">No Record Found</p>
+</div>
